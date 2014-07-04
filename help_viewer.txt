@@ -1,0 +1,354 @@
+
+More details can be found in the manual. 
+
+
+Loading and Viewing a Model
+--------------------------
+
+Start the Program
+
+	> view_models.py &
+
+Click "Load Simulation".  
+
+Choose the directory which contains the model you want to view.
+
+Choose the Image Mode you want to view from the drop down menu
+
+Use the scroll bars to interactively change the viewing angle, scale
+height, initial density and flaring power. The plot will update as you
+drag the sliders.
+
+At any point, clicking "Plot/Refresh Plot" at the bottom of the window
+will update the plot.
+
+To Compare with Observational Data
+----------------------------------
+
+The simulations are calculated to be easily compared to real data. The
+observational data must be in FITS format (with a single extension),
+should be centred in the image and be at the pixel scale specified in
+"Model Parameters" in the "Pixel Scale" entry.  It does not need to be
+rotated to a specific orientation; this can be done in the viewer.
+
+To Load the Data
+
+   Click "Load Observations" and select a FITS file containing your data. 
+   
+   Select the "Show Data Contour" button.
+   
+   The program assumes that the data are centred in the image: the image
+   will be automatically cropped and scaled to match the size of the
+   model.
+   
+   The program assumes that the pixel scale is consistent with the values
+   used to generate the models.  The contour levels used will be listed
+   for reference in the "Image Options" tab, under "Levels".
+
+
+To rotate the contours with respect to the image
+----------------------------------------------
+
+
+   You can rotate the data if it is not aligned with the axis of the
+   model images. You have two options; interactive rotation and
+   entering the angle manually.
+   
+   To interactively rotate, left click anywhere on the image, and
+   without releasing the button drag the pointer as if you were
+   rotating around the centre. When you release the mouse, the plot
+   will update.  To enter a rotation manually, enter the angle
+   (measured counter clockwise) in the entry box (labelled "Contour
+   Rotation"), and click the "Plot/Refresh Plot" button at the bottom
+   of the window.
+
+To Convolve with a PSF
+-----------------------
+
+   The image can be convolved with a user provided PSF, or a
+   Gaussian. The user provided PSF must be in FITS format, in the same
+   pixel scale as the data and centred in the image, but does not need
+   to be flux scaled.
+   
+   To convolve with a Gaussian PSF
+   
+       Select "Convolve with PSF"
+       
+       Choose "Gaussian PSF" and enter the FWHM of the PSF, in units
+       of pixels of the original data.
+       
+       Click "Plot/Refresh Plot" at the bottom of the window.
+
+   To convolve with a user provided PSF
+
+       Select "Convolve with PSF" 
+       
+       Choose "File PSF" and enter the name of the FITS file
+       containing the PSF (including extension). The PSF must be in
+       the same pixel scale as the original data, and should be
+       centred.
+       
+       If the PSF is in a different directory from the code, use the
+       full path to the file.
+       
+       Click "Plot/Refresh Plot" at the bottom of the window.
+
+   Loading/Calculating the PSF only needs to be done once; further
+   plots will use the same PSF.
+
+
+To Display Polarization Vectors
+--------------------------------
+
+   Select "Show Polarization Vectors" to display an overlay of the
+   polarization vectors for the model. To customize the view, see the
+   following section.
+
+To Customize the Image
+----------------------
+
+   The image, contours and polarization vectors can be customized in
+   the "Image Options" tab.
+
+   To use a logarithmic scale for the image
+
+      Select "Logarithmic Image Scale" 
+      
+      Click "Plot/Refresh Plot" at the bottom of the window.
+      
+   To change the upper and lower limits of the image scale
+   
+      Slide the "Lower Limit" and "Upper Limit" bars to adjust the image scale. 
+
+      The units are percentile - ie, 99% will ignore values outside
+      the 99th percentile for the upper limit, 5% will ignore values
+      below the 5th percentile.  The plot will automatically update as
+      you slide the bars.
+   
+   To change the colour map of the image
+   
+      Click "Change Colour Map" 
+      
+      Click "Show Colours" on the popup if you want to view images of
+      the available colour maps.
+      
+      Select your colour map.
+      
+      Click "Done"
+      
+      Click "Plot/Refresh Plot" at the bottom of the window. 
+   
+   To  mask the centre of the image
+   
+      Change the Entry box for "Mask Size" to the size of the mask in
+      model pixels.
+
+      Click The "Plot/Refresh Plot" Button At The Bottom Of The
+      Window.
+
+      A mask size of 0 will have no mask. 
+   
+   
+To Change the Polarization Vectors
+----------------------------------
+
+   To use fewer vectors
+
+     Change "Vector Resampling" to an integer larger than 1. A
+     value of 2, for example, will plot every second vector (the
+     vectors are re-sampled, not averaged, to avoid smoothing out
+     structure).
+
+     Click "Plot/Refresh Plot" at the bottom of the window.
+
+     Note that if the image has been convolved with the PSF, the
+     polarization vectors will be calculated from the convolved
+     data.
+   
+   To make the vectors longer or shorter
+   
+      Change the "Length Scale" entry to a value less than 1 (shorter)
+      or greater than 1(longer). This will scale the length and width
+      of the vectors.
+
+      Click "Plot/Refresh Plot" at the bottom of the window.
+   
+   To Change the Colour of the Polarization Vectors
+   
+      Enter an appropriate colour in the "Vector Colour" box.
+
+      Click "Plot/Refresh Plot" at the bottom of the window.
+   
+Customizing the Contours
+------------------------
+
+   To change the contour colours
+   
+      Enter the colour name under the Conbtour Options section. This
+      works with or without the "Custom Contours" option chosen.
+
+      Click "Plot/Refresh Plot" at the bottom of the window.
+   
+   To generate custom contours
+   
+      Click "Data Statistics" to view a histogram of the data, (this
+      will help select physically reasonable values).
+
+      Enter the number of contours, the lower limit of the contours,
+      and the upper limit of the contours in the "Contour Options"
+      Section.
+   
+      Click "Generate".  A list of contours will be displayed in the
+      "Levels" entry box.
+   
+      Click "Plot/Refresh Plot" at the bottom of the window.
+   
+   To enter your own arbitrary contours 
+
+      Enter your contour values in the "Levels" Entry box, in
+      ascending order, separated by commas (i.e.  0,1.0,2.5,5.0).
+
+      Click "Plot/Refresh Plot" at the bottom of the window.
+   
+   To use logarithmic contours
+   
+      Selecting "Logarithmic Contours" and refreshing the plot will
+      automatically generate logarithmic contours.
+   
+      Selecting "Logarithmic Contours" and using the "Generate"
+      method, as above, will generate custom logarithmic
+      contours. Negative values for the data minimum are acceptable.
+
+
+Plotting Profiles
+----------------
+
+If "Radial Profile (I)" or "Radial Profile (PI)" has been chosen for
+the viewing mode, the viewer will plot a radial profile calculated
+along the X or Y axis for either the total intensity, or the polarized
+intensity.  The data can be averaged along a strip X pixels wide
+(model pixels), or along a wedge of constant angle X degrees wide. The
+contour data, if displayed, will be averaged in the same way.
+
+
+   Select "Radial Profile (I)" or "Radial Profile (PI)" from the drop
+   down menu.
+
+   Select the "Profile Options" Tab.
+
+   Choose the axis you want to plot, as below
+
+		
+   	      +Y
+               |
+               |
+               |
+               |
+               |
+  -X --------- o --------- +X
+               |
+               |
+               |
+               |
+               |
+	      -Y
+
+
+   Choose Wedge (by angle) or Slice (by pixel) for the profile type,
+   and set the width of the strip (in model units, for pixels).
+
+   Select the plotting symbols for the model and the data.
+
+   Enter colours for the model and the data. 
+
+   Click "Plot/Refresh Plot" at the bottom of the window.
+
+Customizing the Profile
+-----------------------
+
+   You can choose a logarithmic plotting scale for the X or Y axis in the plot. 
+
+   You can scale the data by an arbitrary value by entering a value in
+   the "Scale Data by" entry box and refreshing the plot.
+
+
+Plotting Density Distributions
+------------------------------
+
+You can display a profile of the underlying density distribution, in r
+vs z coordinates.
+
+
+   Select the "Density Distribution" option from the drop down menu.
+
+   Click "Plot/Refresh Plot" at the bottom of the window.
+
+Saving Images and Making Lots of Plots
+-------------------------------------
+
+
+You can save individual image to a file from the image menu with the
+format determined by the file name extension. In addition, you can
+plot multiple images in a single plot, and make plots for all the
+models in a run.
+
+
+Snapshot View
+--------------
+
+The "Snapshot View" generates a grid of images in two parameters for a
+quick view of a region of parameter space.  (e.g. plotting the angle
+from 12.9 to 49.4 on one axis, and beta from 1.0 to 1.5 on the other)
+
+   Set up the image options the way you want it to appear: the type of
+   image, image and contour options, colours, etc, as described in the
+   above sections.
+   
+   Select the "Snapshot View" tab.  
+   
+   Choose two variables by selecting one button in the first column,
+   and one in the second.
+   
+   Move the sliders for these two variables to choose the upper and
+   lower limits.
+   
+   Upper = Lower will produce a single image in that axis.  Upper <
+   Lower will display the images in reverse order.
+   
+   Click "Make Figs". This may take a moment, particularly for many
+   complex images.
+   
+   Save using the menu in the image window.
+
+
+Generating All Images
+---------------------
+
+This option generates a single graphics file (jpg) for each model in
+the selected viewing mode. Images will have the same file name as the
+data files, with an extension for the angle and images mode, and will
+be saved in the data directory. If there is data loaded, it will also
+create an image file of the data named "data.jpg".
+
+This can be a lot of images - one for each model, times 11 for the
+different angles, and can take a few minutes to generate.
+
+   Set up the image options the way you want it to appear: the type of
+   image, image and contour options, colours, and so on.
+
+   Click "Save All Figs"
+
+   Wait a while. 
+
+
+Saving Files
+
+Clicking "Save Current File" will save the current model and viewing
+angle as a FITS file, with five extensions; one each for I, Q, U, V
+and PI.
+
+In the Profile View mode, selecting "Profile Options" and clicking
+"Save Current Profile" will save the currently extracted profile to a
+text file.
+
+

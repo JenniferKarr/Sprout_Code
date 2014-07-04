@@ -1,0 +1,45 @@
+
+This is the archive for the Sprout Code.
+
+Sprout is a GUI for generating a set of model images for scattered
+light images for circumstellar disks, varying the disk geometry
+over a range of parameter space, and for viewing the results in 
+an efficient fashion.
+
+Installation instructions are found in the file INSTALL.
+
+Licence information is in the file COPYING.
+
+A complete PDF manual for installation and usage is found in 
+sprout_manual.pdf. 
+
+
+LIST OF FILES
+
+COPYING 
+INSTALL 
+MC_SS_func.py 
+NewPosition_func.c 
+README 
+Sample_Models/
+Save_load_dust_parameters.py
+StokesMuller.c 
+VectorRotate.c 
+ccodes.i 
+congrid.py 
+convolve_psf.py 
+dust_library.pickle 
+help_run.txt   
+help_viewer.txt 
+makemovie.sh 
+mt19937ar.c
+mt19937ar.h
+psf_refstar_cropped.fits
+run_models.py 
+sampe_data.fits
+search_directories.py
+setup.py
+sprout_manual.pdf 
+test_packages.py 
+textfile_window.py 
+view_models.py 

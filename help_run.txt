@@ -1,0 +1,338 @@
+
+Structure of the Window 
+-----------------------
+
+
+Master Functions
+---------------- 
+
+The top line of the window has two
+buttons.
+
+Quit: Quit the program without saving or running.
+
+Help: Bring up a help file.
+
+The second line of the window has functions related to running the
+model.
+
+Run Simulations: This checks the input parameters for validity,
+    		 displays a confirmation pop-up showing the size of
+    		 the images in pixels, and the number of models to be
+    		 run, and then asks for the output directory, before
+    		 running the models.
+
+Save Parameters: Save the current parameters to a file for future use.
+
+Load Parameters: Load saved parameters.
+
+Check Input: Check for non-valid entries (check for numerical input,
+      	     maxima greater than minima, and positive values or
+      	     integers where appropriate). Any errors will be
+      	     displayed.
+
+Save Results as Text: If checked, in addition to saving in python
+     	     	      native pkl format, a portable ascii text file
+     	     	      will be saved for each model (details of the
+     	     	      file format can be found in the Output Format
+     	     	      section below.)
+
+		      On the third line, there are four tabs, for the
+		      different types of parameters.
+
+Model Parameters: values dealing with the image size and resolution,
+      		  number of photons, etc; the overall parameters that
+      		  are independent of the geometry of the disk and
+      		  physics of the dust grains.
+
+Dust Parameters: Dust grain model and wavelength of the image.
+
+Disk Parameters: Parameters related to the disk geometry; size,
+     		 density, flaring, scale height, inner hole.
+
+Advanced Parameters: Parameters of interest only to the advanced user.
+
+
+
+Model Parameters 
+------------------
+
+
+The "Model Parameters" tab include values to do with the size, S/N and
+resolution of the output data. The units of resolution are strongly
+linked to the data to which you want to compare the models: the
+distance to the source, and the pixel scale of the observations.
+
+Number of Photons (1e6 photons): a higher value gives a better S/N,
+       	  	       		 but takes longer to run. 1e6 is a
+       	  	       		 good starting value, you can go as
+       	  	       		 low as 1e5 for quick look images.
+       	  	       		 Very low density disks (ie, optically
+       	  	       		 thin) will require more photons.
+
+Viewing Angle (degrees): In addition to the ten viewing angles, one
+	      		 user specified viewing angle will be
+	      		 calculated. This is particularly useful if
+	      		 you know the inclination of the disk.
+
+       			 The viewing angles that are calculated by
+default are centred at 12.9, 31.4, 41.3, 49.4, 56.5, 63.2, 69.5, 75.5,
+81.4 and 87.1 degrees, where 0 degrees is face on and 90 degrees is
+edge on.
+
+Distance (pc): Distance to the source. The default value is Taurus
+	       (144 pc).
+
+Pixel Sampling: Factor by which you want to scale the pixels in the
+      		models, compared to your original data. A value of 2
+      		will use pixels twice as wide as the data. Rescaling
+      		the pixels can improve the S/N for a given run time,
+      		or speed up the model for a given S/N.
+
+Pixel Scale (arcsec): Linear pixel size in the observational data. The
+      	    	      default value is that for the PDI mode of
+      	    	      HICIAO; change the value appropriate for your
+      	    	      data. If you aren’t comparing with data, this
+      	    	      value can be set to whatever pixel size you
+      	    	      want.
+
+Name of Log File: Name of the file for the log information. This will
+     	    	  be a text file, stored in the same directory as the
+     	    	  model.
+
+ 
+Dust Parameters 
+----------------
+
+
+See sprout_manual.pdf for the relevant equations.
+
+Disk Minimum Radius (AU): The radius of the inner hole in the disk. A
+     	     	    	  value of 0 gives no inner hole.
+
+Disk Maximum Radius (AU): The radius of the disk.
+
+Stellar Radius: (R*) The radius of the central star. This parameter is
+		     only important for determining the values of rhoo
+		     and ho in units R*. If rhoo and h are determined
+		     at an arbitrary radius in AU, R* is not
+		     used. (See "Options for ho" and "Options for rho"
+		     below for details)
+
+Grid Values
+
+For each of the grid values, you need to enter a minimum value, a
+maximum value, and the number of values. In addition, you can choose a
+logarithmic or linear scaling of the parameters; the endpoints will be
+included.
+
+The three grid values
+
+beta: The flaring parameter
+
+rhoo (g cm-3): the initial density, measured at a reference point.
+
+ho (R* or AU): the disk scale height, measured at a reference
+       	       point. ho is measured in R* if ho is determined at R*,
+       	       and AU if h is determined at an arbitrary radius.
+
+
+Options for ho
+
+	The scale height ho can be determined at R* (the stellar
+	surface), a common convention for this type of model, or the
+	an arbitrary radius in AU. This can be selected under "Options
+	for ho". The default is R*.
+
+Options for rhoo
+
+	There are two additional options for rhoo. You can fix the
+	total (dust) disk mask to a constant value (in solar
+	masses). The program will scale the value of rhoo in Equation
+	2 to satisfy this requirement. This is useful if you know the
+	mass of the disk from other observations.
+
+	You can also scale rhoo to a fixed value of the disk’s optical
+	depth in a given direction. In other words, at an angle of
+	theta from the midplane, the total optical depth of the disk
+	will be tau. This is useful for reducing the degeneracy in the
+	parameters for a given shape of the disk emission.
+
+
+	Note that these two options for rhoo will remove the grid
+	option for rhoo, as the density will be independently scaled
+	in each model.  The actual value of rhoo used in the
+	simulation will be stored with the model, used in the model
+	file name, and displayed in the viewer.
+
+
+
+Disk Parameters 
+------------------
+
+These are options for the physical properties of the dust and the
+wavelength of the calculations. All the dust models are spherically
+symmetric homogenous particles, using silicate and either graphite or
+amorphous carbon.
+
+Dust Model: a choice of a variety of pre-computed models taken from
+     	    the literature.
+
+
+	    KMH94, R_V=3.1
+            Cotera+01, amorphous
+            Cotera+01 x 15, amorphous
+            Cotera+01, graphite
+            Cotera+01 x 15, graphite
+
+            Cotera+01, amorphous (J98,400C)
+            Cotera+01, amorphous (J98,600C)
+            Cotera+01, amorphous (J98,800C)
+            Cotera+01, amorphous (J98,1000C)
+            Cotera+01 x 15, amorphous (J98,400C)
+            Cotera+01 x 15, amorphous (J98,600C)
+            Cotera+01 x 15, amorphous (J98,800C)
+            Cotera+01 x 15, amorphous (J98,1000C)  
+  
+	    KMH94, R_V=3.1: ISM model taken from Kim et al., (1994)
+
+	    Cotera+01: Grain composition based on circumstellar disk
+	    observations (Cotera et al., 2001), with variations in the
+	    calculation of optical properties.
+
+	    amorphous - amorphous carbon composition
+	    graphite -  graphite composition
+
+	    x 15 - the same composition, but with the size of the
+	    grains scaled up by a factor of 15, for more evolved dust.
+
+	    (J98) 400C etc. - The same composition, but the
+	    temperature indicates models with different pyrolisis
+	    temperatures, calculated in the manner of Jäger et al
+	    (1998).
+
+	    Wavelength: Select the wavelength from the drop down menu:
+	    the choices are V (0.55 μm), J (1.25 μm), H (1.65 μm) and
+	    K (2.12 μm). This is a monochromatic wavelength, not
+	    integrated over a filter.
+
+
+Advanced Parameters 
+-------------------
+
+Maximum Number of Scatterings: number of scatterings before a photon
+	       	  	       is considered absorbed.
+
+Step size for Photon Path (AU): The grid used for integration in
+     	      	     	  	radius in the model. You may need to
+     	      	     	  	change this for very small disks (a
+     	      	     	  	smaller step size) or very large ones
+     	      	     	  	(a larger step size).
+
+Range for Viewing Angle (Degrees): Angle over which the photons are
+      	  	  		   averaged for the user specified
+      	  	  		   angle.
+
+Image Padding (Percent): amount of empty space around the edges of the
+      	      		 model. 0 crops the model to the outer edge of
+      	      		 the disk exactly.
+
+kappa_ext: (cm2g-1) The opacity for the dust + gas. This will override
+	   	    the value used by the dust model, so use at your
+	   	    own risk.
+
+
+Running the Model 
+------------------
+
+
+Choose your parameters, and click "Run Simulations". The program will
+check for valid input, and display the number of models to be run, and
+the grid size, and ask for confirmation.
+
+You will then be prompted for the output directory, in which the
+results will be stored. The code will over-write previous results if
+you choose the directory used for a previous model.
+
+Once the model starts running, a window will pop up with the run-time
+status, listing the number of models completed, and an estimate of the
+run-time left.
+
+A popup window will alert you when the models are finished. 
+
+
+Saving and Loading Model Parameters
+-----------------------------------
+
+Click "Save Parameters" in the second line of the window to save
+the model parameters to a file (you will be prompted for a file
+name). They can be loaded again using the ´Load ´Parameters¡ button.
+The parameter files are saved in native python pkl format.
+
+Checking the Parameters 
+----------------------
+
+Click "Check Input" in the second line of the window.  This will
+check the input for positive/integer values, non-numeric values, and
+upper limits > lower limits. An error message will be displayed if
+there is a problem, a confirmation otherwise. This step will
+automatically be run before saving the parameters or running the
+model.
+
+Running the Models 
+------------------
+
+Click "Run Simulations" The parameters will be checked for validity,
+and either confirm or give an error message. Close this window to
+proceed.  A popup window will list the pixel size of the output
+images, and the number of models to be calculated. If this is okay,
+click "Yes".  You will be prompted to choose a directory to store the
+output. Creating a new directory is strongly recommended. You cannot
+save more than one model in the same directory.  A popup window will
+show the number of models to be run, and an estimate of the remaining
+run time (after the first model has been run) When the models are
+finished running, a popup will appear.
+
+
+Output 
+------
+
+
+See the manual for a more detailed description.
+
+The output from the program will be contained in the chosen
+directory. It consists of a summary .pkl file for the run, and one
+file for each combination of ρ, h and β. Each file contains the
+information for all eleven viewing angles, and the four polarization
+vectors (I, Q, U, V) plus polarized intensity (PI).  If the -Y΄Save
+as Text‘ option was chosen, the same data are also contained in text
+files (one per model).
+
+and viewing angle, with the name
+
+"run_"+str("%5.3e" % h)+"_"+str("%5.3e" % rho)+"_"+str("%5.3e" % beta)+".pkl"
+
+where h, rho and beta are the values for each model. (%5.3e indicates
+exponential notation with three decimal points).
+
+The log file will be saved in the same directory.
+
+Text Files (Optional)
+
+
+The option "Save as Text" will also create an ascii text file for each
+model, for ease of importation into other software. The file name is
+the same as above, but with the extension ".dat".
+
+A series of header lines, prefixed by "##" containing a listing of the
+model parameters, followed by the data in the format
+
+Angle X Y I Q U V %12.4f %5d %5d %12.4e %12.4e %12.4e %12.4e
+
+where X is the value of the x pixel (0 to npixel-1) and Y is the value
+of the y pixel (0 to npixel-1), both in integer format, followed by
+the four polarization values in exponential format.
+
+The lines are organized by angle, then by X pixel coordinate, then by
+Y pixel coordinate.  There are therefore 11 * nx * ny total lines of
+data.

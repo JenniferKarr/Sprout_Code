@@ -1,0 +1,188 @@
+-----RUNNING CODE-------
+
+-----MODEL DIMENSIONS-------
+
+  Distance = 144.0 AU
+  Pixel Scale = 0.00948 arcsec
+  Correponding grid is 91.0 x 91.0 pixels
+
+-----GRID PARAMETERS-------
+
+  Running a total of 27 model(s)
+
+  3 different values for h
+          h values:  5.0 10.0 15.0
+
+  h values scaled from a radius of 100.0 AU
+  3 different values for beta
+          beta values:  1.4 1.5 1.6
+
+   3 different values for rho
+          rho values:  1e-07 1e-06 1e-05
+
+  rho values scaled from R*
+
+
+---Model Parameters---
+
+  Number of Photons = 5000000
+  User Specified Angle of Inclination = 35.0 degrees
+
+---Dust Parameters---
+
+  Dust Model = KMH94, R_V=3.1
+  Wavelength = 1.65 microns 
+
+---Fixed Disk Parameters---
+
+  Disk Model = User Specified
+  Stellar Radius = 1.2 solar radii
+  Minimum Disk Radius = 5.0 AU
+  Maximum Disk Radius = 100.0 AU
+
+---Advanced  Parameters---
+
+  kappa_ext = 0.0
+  tau_critical = 0.001
+  tmax = -1
+  Range for User Specified Angle of Inclination = 10.0
+  Maximum Number of Scatters = 3
+  Step Size for Photon Path = 0.5
+
+Running Model 1 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 5.0
+  rho = 1e-07
+run_5.000e+00_1.000e-07_1.400e+00Running Model 2 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 5.0
+  rho = 1e-07
+run_5.000e+00_1.000e-07_1.500e+00Running Model 3 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 5.0
+  rho = 1e-07
+run_5.000e+00_1.000e-07_1.600e+00Running Model 4 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 5.0
+  rho = 1e-06
+run_5.000e+00_1.000e-06_1.400e+00Running Model 5 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 5.0
+  rho = 1e-06
+run_5.000e+00_1.000e-06_1.500e+00Running Model 6 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 5.0
+  rho = 1e-06
+run_5.000e+00_1.000e-06_1.600e+00Running Model 7 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 5.0
+  rho = 1e-05
+run_5.000e+00_1.000e-05_1.400e+00Running Model 8 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 5.0
+  rho = 1e-05
+run_5.000e+00_1.000e-05_1.500e+00Running Model 9 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 5.0
+  rho = 1e-05
+run_5.000e+00_1.000e-05_1.600e+00Running Model 10 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 10.0
+  rho = 1e-07
+run_1.000e+01_1.000e-07_1.400e+00Running Model 11 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 10.0
+  rho = 1e-07
+run_1.000e+01_1.000e-07_1.500e+00Running Model 12 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 10.0
+  rho = 1e-07
+run_1.000e+01_1.000e-07_1.600e+00Running Model 13 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 10.0
+  rho = 1e-06
+run_1.000e+01_1.000e-06_1.400e+00Running Model 14 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 10.0
+  rho = 1e-06
+run_1.000e+01_1.000e-06_1.500e+00Running Model 15 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 10.0
+  rho = 1e-06
+run_1.000e+01_1.000e-06_1.600e+00Running Model 16 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 10.0
+  rho = 1e-05
+run_1.000e+01_1.000e-05_1.400e+00Running Model 17 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 10.0
+  rho = 1e-05
+run_1.000e+01_1.000e-05_1.500e+00Running Model 18 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 10.0
+  rho = 1e-05
+run_1.000e+01_1.000e-05_1.600e+00Running Model 19 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 15.0
+  rho = 1e-07
+run_1.500e+01_1.000e-07_1.400e+00Running Model 20 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 15.0
+  rho = 1e-07
+run_1.500e+01_1.000e-07_1.500e+00Running Model 21 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 15.0
+  rho = 1e-07
+run_1.500e+01_1.000e-07_1.600e+00Running Model 22 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 15.0
+  rho = 1e-06
+run_1.500e+01_1.000e-06_1.400e+00Running Model 23 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 15.0
+  rho = 1e-06
+run_1.500e+01_1.000e-06_1.500e+00Running Model 24 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 15.0
+  rho = 1e-06
+run_1.500e+01_1.000e-06_1.600e+00Running Model 25 of 27
+  alpha = 2.4
+  beta = 1.4
+  h = 15.0
+  rho = 1e-05
+run_1.500e+01_1.000e-05_1.400e+00Running Model 26 of 27
+  alpha = 2.5
+  beta = 1.5
+  h = 15.0
+  rho = 1e-05
+run_1.500e+01_1.000e-05_1.500e+00Running Model 27 of 27
+  alpha = 2.6
+  beta = 1.6
+  h = 15.0
+  rho = 1e-05
+run_1.500e+01_1.000e-05_1.600e+00
+ -------FINISHED SIMULATIONS SUCCESSFULLY---------

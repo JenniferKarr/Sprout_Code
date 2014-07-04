@@ -1,0 +1,75 @@
+
+
+The code is written in a combination of C and python, for portability
+and affordability. It has successfully been installed on several
+flavours of Linux and OSX 10.6 (Snow Leopard). Feedback for
+installation on other platforms would be appreciated.
+
+Software Requirements
+
+You need python 2.6 or 2.7 and swig installed. In addition, the python
+packages Tkinter, pylab, matplotlib, numpy, scipy, pyfits, Pmw,
+pickle, os, string and sys are called.  To test for installed
+packages, the included script “test_packages.py” can be used.
+
+	> ./test_packages.py
+
+which will produce a list of any packages that need to be
+installed. To test for the presence of swig
+
+	> which swig
+
+will determine if you have it installed. If not, it can be downloaded
+at www.swig.org,
+
+Installing the Code
+
+The code can be downloaded at ??. On a *nix system (including OSX) the
+following commands will compile the C code and link it with the python
+code.
+
+	> gunzip sprout.tar.gz
+	> tar -xf sprout.tar
+	> cd Sprout_Code
+	> swig -python ccodes.i	
+	> ./setup.py build_ext --inplace
+
+This will place the files in the local directory. If you are redoing
+the installation for some reason, then enter
+
+	> rm -rf build _ccodes.so ccodes_wrap.c ccodes.py *pyc
+
+to clear out intermediate files before re-executing the swig
+command. Once the program is compiled and running, you can delete the
+source code and created installation files.
+
+If you want to put the files in another location 
+
+	> cp *.py  dust_library.pickle Install_Directory/
+
+where Install_Directory is the directory you want to place the
+software. Make sure that the Install_Directory is defined in your
+path. You can then delete the source code and intermediate files:
+
+	>rm -rf *.c build/ *.h _ccodes.so ccodes.i
+
+Executing the python setup script, test_packages.py and the Sprout
+programs will automatically use the python installation from your PATH
+variable. If you want to over-ride this with a specific version of
+python, explicitly run the programs with that version of python,
+instead of running the python as an executable. E.g.,
+
+	> python2.7 test_packages.py
+
+Demo Files
+
+Included with the code is a set of example files. The directory
+“Model_Example” contains a small run of data, to test the use of the
+view_models.py. The file “Model_Example.pkl” contains a save file for
+the parameters, that can be loaded into
+run_models.py. psf_example.fits contains an example PSF (derived from
+Subaru HICIAO observations). The file “test_data.fits” contains a FITS
+file that can be loaded into the viewer.
+
+In addition, there is the script make_movies.sh (described in the
+“Making Movies” section of the manual).
