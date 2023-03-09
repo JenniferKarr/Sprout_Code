@@ -33,6 +33,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "mt19937ar.h"
+#include "NewPosition_func.h"
 
 const double rad2deg;
 double Rmin, Rmax;       //  2/22/2012: their unit has been changed to AU
