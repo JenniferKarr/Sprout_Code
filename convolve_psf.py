@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from pylab import *
-import pyfits
+from astropy.io import fits as pyfits
 import congrid
 from  scipy.signal import *
 

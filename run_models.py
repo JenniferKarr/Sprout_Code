@@ -30,6 +30,8 @@ This file is part of Sprout.
 
 """
 
+import matplotlib 
+matplotlib.use("TkAgg")
 
 from pylab import * 
 from Tkinter import * 

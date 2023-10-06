@@ -33,9 +33,12 @@ This file is part of Sprout.
 
 """
 
+
 from Tkinter import * 
 import tkMessageBox 
-import tkFileDialog 
+import tkFileDialog
+import matplotlib 
+matplotlib.use("TkAgg")
 from pylab import * 
 import scipy
 import scipy.stats
@@ -43,7 +46,8 @@ import numpy
 import numpy.ma as ma
 from numpy import outer
 import pickle
-import pyfits
+#import pyfits
+from astropy.io import fits as pyfits
 import Pmw
 import os
 import string
@@ -71,11 +75,11 @@ class cmap_window(Frame):
      Frame.__init__(self,master)
 
      ##CURRENT SPECTRAL MAP AND LIST OF OPTIONS
-     self.cmap='spectral'  
+     self.cmap='Spectral'  
      
      ##LIST OF COLOUR MAPS
 
-     self.cmaps=['spectral','autumn','bone','cool','copper','flag','gray','hot','hsv','jet','pink','prism','spring','summer','winter']
+     self.cmaps=['Spectral','autumn','bone','cool','copper','flag','gray','hot','hsv','jet','pink','prism','spring','summer','winter']
      self.cmaps_num=range(15)
 
      self.col=IntVar() ##VARIABE TO HOLD COLOUR CHOICE
@@ -149,7 +153,8 @@ class cmap_window(Frame):
      ##AND RESET THE FIGURE NUMBER
      fig=figure(1)
 
-     if(string.lower(sys.platform) != "darwin"):
+     print(sys.platform)
+     if(string.lower(sys.platform) != "zzz"):
        show()
 
 
@@ -782,7 +787,7 @@ class parameter_view(Frame):
         try:
           self.cmap=get_cmap(self.cc.cmap)
         except:
-            self.cmap=cm.spectral
+            self.cmap=cm.Spectral
 
         self.cmap.set_bad('black',1) ##MISSING OR BAD PIXELS ARE BLACK
 
@@ -791,7 +796,7 @@ class parameter_view(Frame):
         self.plotit=imshow(self.twod,origin='lower',interpolation='nearest',extent=[0,self.maxr,0,self.maxr],vmin=mmin,vmax=mmax,cmap=self.cmap)
         plot(self.r_array,self.z_array,'w-' )
 
-        if(string.lower(sys.platform) != "darwin"):
+        if(string.lower(sys.platform) != "zzz"):
           show()
 
      ##--------------------------------------------------------------------------------------------
@@ -1181,7 +1186,7 @@ class parameter_view(Frame):
 
             savefig("self.dirname+"/"+data.jpg")
 
-        if(string.lower(sys.platform) != "darwin"):
+        if(string.lower(sys.platform) != "zzz"):
           show()
 
 
@@ -1386,7 +1391,7 @@ class parameter_view(Frame):
         """
 
 
-        if(string.lower(sys.platform) != "darwin"):  ##MAC SPECIFIC
+        if(string.lower(sys.platform) != "zzz"):  ##MAC SPECIFIC
           ion()
 
         ##GET THE FILE NAME AND LOAD THE FILE
@@ -1587,7 +1592,7 @@ class parameter_view(Frame):
         try:
           self.cmap=get_cmap(self.cc.cmap)
         except:
-            self.cmap=cm.spectral
+            self.cmap=cm.Spectral
 
         self.cmap.set_bad('black',1)
 
@@ -1716,7 +1721,7 @@ class parameter_view(Frame):
            ##write THE STRING IN THE WINDOW
             self.contour_levels.set(contourstring)
 
-        if(string.lower(sys.platform) != "darwin"):
+        if(string.lower(sys.platform) != "zzz"):
             show()
             
     ##--------------------------------------------------------------------------------------------
@@ -2413,7 +2418,7 @@ class parameter_view(Frame):
       if(self.contour.get==1):
         self.dataprof=dataprof
 
-        if(string.lower(sys.platform) != "darwin"):
+        if(string.lower(sys.platform) != "zzz"):
             show()
 
  
